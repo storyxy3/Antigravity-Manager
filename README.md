@@ -360,6 +360,9 @@ response = client.chat.completions.create(
 
 *   **版本演进 (Changelog)**:
     *   **v4.0.14 (2026-02-02)**:
+        -   **[核心修复] 解决 Web/Docker 部署下 API Key 随机变更问题 (Issue #1460)**:
+            -   **问题修复**: 修复了在没有配置文件的情况下，每次刷新页面都会重新生成 API Key 的 Bug。
+            -   **逻辑优化**: 优化了配置加载流程，确保首次生成的随机 Key 被正确持久化；同时也确保了 Headless 模式下环境变量（如 `ABV_API_KEY`）的覆盖能够被前端正确获取。
         -   **[核心功能] 可配置思考预算 (Thinking Budget) (PR #1456)**:
             -   **预算控制**: 在系统设置中新增了“思考预算”配置项。
             -   **智能适配**: 支持为 Claude 3.7+ 和 Gemini 2.0 Flash Thinking 等模型自定义最大思考 token 限制。

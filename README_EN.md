@@ -248,6 +248,9 @@ print(response.choices[0].message.content)
 
 *   **Changelog**:
     *   **v4.0.14 (2026-02-02)**:
+        -   **[Core Fix] Fix API Key Regeneration in Web/Docker (Issue #1460)**:
+            -   **Resolution**: Resolved the bug where the API Key was regenerated on every page refresh when no config file existed.
+            -   **Consistency**: Improved the configuration loading flow to ensure the initial random key is persisted and environment variable overrides are correctly reflected in the Web UI.
         -   **[Core Feature] Configurable Thinking Budget (PR #1456)**:
             -   **Budget Control**: Added a "Thinking Budget" configuration setting in System Settings.
             -   **Smart Adaptation**: Supports customizing the maximum thinking token limit for models like Claude 3.7+ and Gemini 2.0 Flash Thinking.

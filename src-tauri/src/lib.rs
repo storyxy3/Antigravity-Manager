@@ -79,6 +79,7 @@ pub fn run() {
             // Load config
             match modules::config::load_app_config() {
                 Ok(mut config) => {
+                    let mut modified = false;
                     // Force LAN access in headless/docker mode so it binds to 0.0.0.0
                     config.proxy.allow_lan_access = true;
 
@@ -92,6 +93,7 @@ pub fn run() {
                         if !key.trim().is_empty() {
                             info!("Using API Key from environment variable");
                             config.proxy.api_key = key;
+                            modified = true;
                         }
                     }
 
@@ -105,6 +107,7 @@ pub fn run() {
                         if !pwd.trim().is_empty() {
                             info!("Using Web UI Password from environment variable");
                             config.proxy.admin_password = Some(pwd);
+                            modified = true;
                         }
                     }
 
@@ -128,6 +131,7 @@ pub fn run() {
                         if let Some(m) = mode {
                             info!("Using Auth Mode from environment variable: {:?}", m);
                             config.proxy.auth_mode = m;
+                            modified = true;
                         }
                     }
 
@@ -143,6 +147,15 @@ pub fn run() {
                     info!("💡 Tips: You can use these keys to login to Web UI and access AI APIs.");
                     info!("💡 Search docker logs or grep gui_config.json to find them.");
                     info!("--------------------------------------------------");
+
+                    // [FIX #1460] Persist environment overrides to ensure they are visible in Web UI/load_config
+                    if modified {
+                        if let Err(e) = modules::config::save_app_config(&config) {
+                            error!("Failed to persist environment overrides: {}", e);
+                        } else {
+                            info!("Environment overrides persisted to gui_config.json");
+                        }
+                    }
 
                     // Start proxy service
                     if let Err(e) = commands::proxy::internal_start_proxy_service(
