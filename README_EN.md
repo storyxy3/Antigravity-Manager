@@ -259,6 +259,8 @@ print(response.choices[0].message.content)
         -   **[i18n] Comprehensive Language Support Update**:
             -   **Coverage Boost**: Completed missing translation keys for 10 languages including Traditional Chinese, Japanese, Korean, Spanish, Arabic, etc.
             -   **Polishing**: Fixed missing translations for "Show all quotas" and OAuth authorization prompts.
+        -   **[i18n] Background Task Translation Fix (PR #1421)**:
+            -   **Translation Fix**: Resolved missing translations for background tasks (e.g., title generation), ensuring proper localization across all supported languages.
         -   **[Bug Fix] Fix Language Switcher Malfunction (Fix Navbar Interaction)**:
             -   **Root Cause**: Resolved a `ref` conflict introduced during merge that caused incorrect click detection on mobile/desktop.
             -   **Outcome**: The language switcher menu now opens and interacts correctly.
