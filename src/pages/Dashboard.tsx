@@ -122,7 +122,7 @@ function Dashboard() {
             // Get export data from API (contains refresh_token)
             const accountIds = accountsToExport.map(acc => acc.id);
             const response = await exportAccounts(accountIds);
-            
+
             if (!response.accounts || response.accounts.length === 0) {
                 showToast(t('dashboard.toast.export_no_accounts'), 'warning');
                 return;
@@ -193,9 +193,10 @@ function Dashboard() {
                             className={`px-3 py-1.5 bg-blue-500 text-white text-xs font-medium rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-1.5 shadow-sm ${isRefreshing || !currentAccount ? 'opacity-70 cursor-not-allowed' : ''}`}
                             onClick={handleRefreshCurrent}
                             disabled={isRefreshing || !currentAccount}
+                            title={isRefreshing ? t('dashboard.refreshing') : t('dashboard.refresh_quota')}
                         >
                             <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
-                            {isRefreshing ? t('dashboard.refreshing') : t('dashboard.refresh_quota')}
+                            <span className="hidden sm:inline">{isRefreshing ? t('dashboard.refreshing') : t('dashboard.refresh_quota')}</span>
                         </button>
                     </div>
                 </div>
