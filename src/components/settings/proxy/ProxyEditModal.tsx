@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { X, Save, Plus } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { ProxyEntry } from '../../../types/config';
+import { generateUUID } from '../../../utils/uuid';
 
 interface ProxyEditModalProps {
     isOpen: boolean;
@@ -16,7 +17,7 @@ interface ProxyEditModalProps {
 export default function ProxyEditModal({ isOpen, onClose, onSave, initialData, isEditing }: ProxyEditModalProps) {
     const { t } = useTranslation();
     const [formData, setFormData] = useState<ProxyEntry>({
-        id: crypto.randomUUID(),
+        id: generateUUID(),
         name: '',
         url: '',
         priority: 0,
@@ -39,7 +40,7 @@ export default function ProxyEditModal({ isOpen, onClose, onSave, initialData, i
                 setFormData(JSON.parse(JSON.stringify(initialData)));
             } else {
                 setFormData({
-                    id: crypto.randomUUID(),
+                    id: generateUUID(),
                     name: '',
                     url: '',
                     priority: 0,

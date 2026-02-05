@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { X, Upload, FileText, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { ProxyEntry } from '../../../types/config';
+import { generateUUID } from '../../../utils/uuid';
 
 interface BatchImportModalProps {
     isOpen: boolean;
@@ -66,7 +67,7 @@ export default function BatchImportModal({ isOpen, onClose, onImport }: BatchImp
                 }
 
                 newProxies.push({
-                    id: crypto.randomUUID(),
+                    id: generateUUID(),
                     // Name will be assigned when adding to main list or just generic here
                     name: `Imported Proxy`,
                     url: url,

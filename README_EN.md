@@ -275,6 +275,9 @@ print(response.choices[0].message.content)
         -   **[Core Optimization] Concurrent Proxy Pool Health Checks (PR #1547)**:
             -   **Performance Boost**: Integrated a concurrent execution mechanism based on `futures` streams, refactoring sequential checks into parallel processing (concurrency limit: 20).
             -   **Efficiency Enhancement**: Significantly reduced the total duration of health checks for large proxy pools, improving the system's responsiveness to proxy status changes.
+        -   **[Core Fix] Resolve crypto.randomUUID Compatibility in Docker/HTTP (Issue #1548)**:
+            -   **Crash Fix**: Resolved application crashes ("Unexpected Application Error") and batch import failures in non-secure contexts (e.g., HTTP or partial Docker environments) where the browser disables the `crypto.randomUUID` API.
+            -   **Compatibility**: Introduced a cross-platform compatible UUID generation fallback mechanism, ensuring ID generation stability in any deployment environment.
     *   **v4.1.1 (2026-02-04)**:
         -   **[Core Feature] Update Checker Enhanced (Update Checker 2.0) (PR #1494)**:
             -   **Proxy Support**: The update checker now fully respects the global upstream proxy configuration.
