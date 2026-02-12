@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Antigravity Tools - 高性能代理与智能适配</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #d1d1d1;
+            overflow-x: hidden;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 1)), url('hero-bg.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .emerald-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .neon-border {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.5);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .glow-btn:hover {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav
+        class="fixed top-0 w-full z-50 glass border-b border-emerald-900/30 px-6 py-4 flex justify-between items-center transitiion-all duration-300">
+        <div class="flex items-center space-x-3">
+            <img src="logo.png" alt="Logo" class="w-8 h-8 rounded-lg shadow-lg shadow-emerald-500/20">
+            <span class="text-xl font-bold emerald-gradient uppercase tracking-wider">Antigravity</span>
+        </div>
+        <div class="flex items-center space-x-4 md:space-x-8">
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#" class="text-emerald-400 font-bold" data-i18n="navHome">首页</a>
+                <a href="qa.html" class="hover:text-emerald-400 transition-colors" data-i18n="navFaq">常见问题</a>
+                <a href="https://github.com/lbjlaq/Antigravity-Manager"
+                    class="hover:text-emerald-400 transition-colors">GitHub</a>
+            </div>
+            <button id="lang-toggle" onclick="toggleLanguage()"
+                class="glass px-3 py-1 rounded-lg text-xs font-bold border border-emerald-500/30 hover:bg-emerald-500/10 transition-all uppercase">
+                EN
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center hero-bg px-6 pt-16">
+        <div class="max-w-5xl text-center z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 uppercase tracking-tighter leading-none"
+                data-i18n="heroSlogan">
+                释放 <span class="emerald-gradient">重力</span><br>掌控代码未来
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed"
+                data-i18n="heroSub">
+                Antigravity Tools 是一套专为极客打造的高性能代理与智能适配协议栈。完美解决跨平台协议阻抗，让每一行代码都飞速流转。
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://github.com/lbjlaq/Antigravity-Manager"
+                    class="glow-btn bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-full font-bold transition-all flex items-center shadow-lg shadow-emerald-500/20">
+                    <i data-lucide="download" class="w-5 h-5 mr-2"></i> <span data-i18n="btnDownload">立即下载</span>
+                </a>
+                <a href="qa.html"
+                    class="glass px-8 py-4 rounded-full font-bold text-white hover:bg-emerald-900/20 transition-all"
+                    data-i18n="btnLearnMore">
+                    排障指南
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性展示 -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="feature-card glass p-8 rounded-3xl border border-emerald-900/20 transition-all duration-300">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 neon-border">
+                    <i data-lucide="zap" class="text-emerald-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4" data-i18n="feat1Title">极致协议适配</h3>
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="feat1Sub">
+                    自研 Client Adapter 框架，深度支持 Claude, Gemini 等主流大模型协议的无缝对齐与转换。
+                </p>
+            </div>
+            <div class="feature-card glass p-8 rounded-3xl border border-emerald-900/20 transition-all duration-300">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 neon-border">
+                    <i data-lucide="shield-check" class="text-emerald-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4" data-i18n="feat2Title">本地安全增强</h3>
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="feat2Sub">
+                    全链路签名校验与会话加密，确保您的 API 密钥与代理流量在本地机器上绝对安全。
+                </p>
+            </div>
+            <div class="feature-card glass p-8 rounded-3xl border border-emerald-900/20 transition-all duration-300">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 neon-border">
+                    <i data-lucide="cpu" class="text-emerald-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4" data-i18n="feat3Title">智能推理调度</h3>
+                <p class="text-gray-500 text-sm leading-relaxed" data-i18n="feat3Sub">
+                    内置思考模型调度算法，支持 Flash Thinking 动态预算管理，让推理过程更高效。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-emerald-900/30 px-6 text-center">
+        <p class="text-gray-600 text-sm">© 2026 Antigravity Tools. Built for performance.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            zh: {
+                pageTitle: "Antigravity Tools - 高性能代理与智能适配",
+                navHome: "首页",
+                navFaq: "常见问题",
+                heroSlogan: "释放 <span class='emerald-gradient'>重力</span><br>掌控代码未来",
+                heroSub: "Antigravity Tools 是一套专为极客打造的高性能代理与智能适配协议栈。完美解决跨平台协议阻抗，让每一行代码都飞速流转。",
+                btnDownload: "立即下载",
+                btnLearnMore: "排障指南",
+                feat1Title: "极致协议适配",
+                feat1Sub: "自研 Client Adapter 框架，深度支持 Claude, Gemini 等主流大模型协议的无缝对齐与转换。",
+                feat2Title: "本地安全增强",
+                feat2Sub: "全链路签名校验与会话加密，确保您的 API 密钥与代理流量在本地机器上绝对安全。",
+                feat3Title: "智能推理调度",
+                feat3Sub: "内置思考模型调度算法，支持 Flash Thinking 动态预算管理，让推理过程更高效。",
+                toggleLabel: "EN"
+            },
+            en: {
+                pageTitle: "Antigravity Tools - High Performance Proxy Stack",
+                navHome: "Home",
+                navFaq: "FAQ",
+                heroSlogan: "Release <span class='emerald-gradient'>Gravity</span><br>Master the Future",
+                heroSub: "Antigravity Tools is a high-performance proxy and adapter stack built for geeks. Solve cross-platform protocol impedance and let your code fly.",
+                btnDownload: "Download Now",
+                btnLearnMore: "Troubleshooting",
+                feat1Title: "Extreme Protocol Adapter",
+                feat1Sub: "Self-developed Client Adapter framework supports seamless alignment for Claude, Gemini and more.",
+                feat2Title: "Local Security Plus",
+                feat2Sub: "Full-link signature verification and session encryption keep your API keys and traffic secure.",
+                feat3Title: "Smart Inference Scheduler",
+                feat3Sub: "Built-in thinking model algorithm with Flash Thinking dynamic budget management for efficiency.",
+                toggleLabel: "中文"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function initLanguage() {
+            const browserLang = navigator.language.split('-')[0];
+            currentLang = (browserLang === 'zh') ? 'zh' : 'en';
+            updateUI();
+        }
+
+        function toggleLanguage() {
+            currentLang = (currentLang === 'zh') ? 'en' : 'zh';
+            updateUI();
+        }
+
+        function updateUI() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (key === 'heroSlogan') {
+                    el.innerHTML = translations[currentLang][key];
+                } else {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+            document.getElementById('lang-toggle').innerText = translations[currentLang].toggleLabel;
+            lucide.createIcons();
+        }
+
+        initLanguage();
+    </script>
+</body>
+
+</html>
